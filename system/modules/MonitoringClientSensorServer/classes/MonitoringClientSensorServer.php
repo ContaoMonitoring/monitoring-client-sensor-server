@@ -63,7 +63,7 @@ class MonitoringClientSensorServer extends \Backend
     $arrData['php.version'] = $arrPhpInfo['Core']['PHP Version'];
     // Server
     $arrData['server.os'] = php_uname();
-    $arrData['server.software'] = $arrPhpInfo['Environment']['SERVER_SOFTWARE'];
+    $arrData['server.software'] = $arrPhpInfo['PHP Variables']['$_SERVER[\'SERVER_SOFTWARE\']']; 
     // MySQL
     $version = \Database::getInstance()->prepare("SELECT @@version as version")->execute()->version;
     $arrData['mysql.version'] = substr($version, 0, strpos($version, "-"));
