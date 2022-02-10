@@ -4,7 +4,7 @@
 	"keywords":["contao","monitoring"],
 	"type":"contao-module",
 	"homepage":"https://github.com/ContaoMonitoring/monitoring-client-sensor-server",
-	"license":"LGPL-3.0+",
+	"license":"LGPL-3.0-or-later",
 	"authors":[
 		{
 			"name":"Cliff Parnitzky",
@@ -18,8 +18,8 @@
 		"source":"https://github.com/ContaoMonitoring/monitoring-client-sensor-server"
 	},
 	"require":{
-		"php":">=5.6",
-		"contao/core-bundle":"~3.5 || ~4.4",
+		"php":">=7.4",
+		"contao/core-bundle":"~4.9",
 		"contao-community-alliance/composer-plugin":"~2.4 || ~3.0",
 		"contao-monitoring/monitoring-client":"~1.0"
 	},
