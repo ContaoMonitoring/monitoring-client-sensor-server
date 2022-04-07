@@ -58,13 +58,25 @@ class MonitoringClientSensorServer extends \Backend
     // PHP
     $arrData['php.max_execution_time'] = ini_get('max_execution_time');
     $arrData['php.memory_limit'] = ini_get('memory_limit');
+    $arrData['php.file_uploads'] = ini_get('file_uploads');
+    $arrData['php.upload_max_filesize'] = ini_get('upload_max_filesize');
+    $arrData['php.post_max_size'] = ini_get('post_max_size');
+    $arrData['php.max_input_vars'] = ini_get('max_input_vars');
+    $arrData['php.opcache.enable'] = ini_get('opcache.enable');
+    $arrData['php.opcache.enable_cli'] = ini_get('opcache.enable_cli');
+    $arrData['php.opcache.max_accelerated_files'] = ini_get('opcache.max_accelerated_files');
+    $arrData['php.safe_mode'] = ini_get('safe_mode');
+    $arrData['php.open_basedir'] = ini_get('open_basedir');
     $arrData['php.version'] = phpversion();
     // Server
     $arrData['server.os'] = php_uname();
     $arrData['server.software'] = $_SERVER['SERVER_SOFTWARE']; 
-    // MySQL
+    // Database
     $version = \Database::getInstance()->prepare("SELECT @@version as version")->execute()->version;
-    $arrData['mysql.version'] = strpos($version, "-") ? substr($version, 0, strpos($version, "-")) : $version;
+    $arrData['database.version'] = strpos($version, "-") ? substr($version, 0, strpos($version, "-")) : $version;
+    $arrData['database.platform'] = basename(str_replace('\\', '/', get_class(\System::getContainer()->get('database_connection')->getDatabasePlatform())));
+    // Keep for backwards compatibility
+    $arrData['mysql.version'] = $arrData['database.version'];
     
     return $arrData;
   }
