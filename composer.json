@@ -20,7 +20,7 @@
 	"require":{
 		"php":">=7.4",
 		"contao/core-bundle":"~4.9",
-		"contao-community-alliance/composer-plugin":"~2.4 || ~3.0",
+		"contao-community-alliance/composer-plugin":"~3.0",
 		"contao-monitoring/monitoring-client":"~1.0"
 	},
 	"extra":{
@@ -30,7 +30,7 @@
 			}
 		},
 		"branch-alias": {
-			"dev-master": "1.0.x-dev"
+			"dev-master": "1.1.x-dev"
 		}
 	}
 }
