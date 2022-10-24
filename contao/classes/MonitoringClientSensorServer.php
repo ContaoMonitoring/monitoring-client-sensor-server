@@ -30,7 +30,12 @@
 /**
  * Run in a custom namespace, so the class can be replaced
  */
-namespace Monitoring;
+
+namespace ContaoMonitoring\ContaoMonitoringClientSensorServer\Classes;
+
+use Contao\Backend;
+use Contao\Database;
+use Contao\System;
 
 /**
  * Class MonitoringClientSensorServer
@@ -40,7 +45,7 @@ namespace Monitoring;
  * @author     Cliff Parnitzky
  * @package    Controller
  */
-class MonitoringClientSensorServer extends \Backend
+class MonitoringClientSensorServer extends Backend
 {
   /**
    * Constructor
@@ -70,16 +75,14 @@ class MonitoringClientSensorServer extends \Backend
     $arrData['php.version'] = phpversion();
     // Server
     $arrData['server.os'] = php_uname();
-    $arrData['server.software'] = $_SERVER['SERVER_SOFTWARE']; 
+    $arrData['server.software'] = $_SERVER['SERVER_SOFTWARE'];
     // Database
-    $version = \Database::getInstance()->prepare("SELECT @@version as version")->execute()->version;
+    $version = Database::getInstance()->prepare("SELECT @@version as version")->execute()->version;
     $arrData['database.version'] = strpos($version, "-") ? substr($version, 0, strpos($version, "-")) : $version;
-    $arrData['database.platform'] = basename(str_replace('\\', '/', get_class(\System::getContainer()->get('database_connection')->getDatabasePlatform())));
+    $arrData['database.platform'] = basename(str_replace('\\', '/', get_class(System::getContainer()->get('database_connection')->getDatabasePlatform())));
     // Keep for backwards compatibility
     $arrData['mysql.version'] = $arrData['database.version'];
-    
+
     return $arrData;
   }
 }
-
-?>
