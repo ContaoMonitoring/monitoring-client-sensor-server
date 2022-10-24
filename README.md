@@ -25,7 +25,7 @@ https://github.com/ContaoMonitoring/monitoring-client-sensor-server/issues
 Compatibility
 -------------
 
-- Contao version >= 4.9.0
+- Contao version >= 5.0.0
 
 
 Dependency
