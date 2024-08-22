@@ -6,7 +6,7 @@
 		"monitoring"
 	],
 	"type": "contao-module",
-	"homepage": "https://github.com/ContaoMonitoring/monitoring-client-sensor-server",
+	"homepage": "https://github.com/ContaoMonitoring",
 	"license": "LGPL-3.0-or-later",
 	"authors": [
 		{
